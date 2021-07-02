@@ -167,6 +167,33 @@ Scenario
 
 print("Lab exercise to be done later- https://edube.org/learn/python-advanced-1/lab-1-implementing-core-syntax")
 
+   # adding time intervals, like: add 21 hours 58 minutes 50 seconds to 1hr 45 minutes 22 seconds;
+    
+class TimeInterval():
+    
+    
+    def __init__(self, h,m,s):
+        self.time_in_seconds = (h * 3600) + (m * 60) + s
+        
+    def __str__(self):
+        return (self.time_in_seconds // 3600, (self.time_in_seconds % 3600) // 60, (self.time_in_seconds % 3600) % 60) 
+
+    def __add__(self, h2, m2, s2):
+        time_in_seconds = (h2 * 3600) + (m2 * 60) + s2
+        new_time_in_seconds = self.time_in_seconds + time_in_seconds 
+        return (new_time_in_seconds // 3600, (new_time_in_seconds % 3600) // 60, (new_time_in_seconds % 3600) % 60)
+        
+    def __sub__(self, h2, m2, s2):
+        time_in_seconds = (h2 * 3600) + (m2 * 60) + s2
+        new_time_in_seconds = self.time_in_seconds - time_in_seconds
+        return (new_time_in_seconds // 3600, (new_time_in_seconds % 3600) // 60, (new_time_in_seconds % 3600) % 60)
+
+        
+t1 = TimeInterval(1,45,22)
+print(t1.__str__())
+
+print(t1.__add__(21,58,50))
+
 print("="*80)
 
 """
@@ -195,4 +222,5 @@ print("Lab exercise to be done later- https://edube.org/learn/python-advanced-1/
 print("="*80)
 
 print("Inheritance and polymorphism — Inheritance is a pillar of OOP")
+
 
